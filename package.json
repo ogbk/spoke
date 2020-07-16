@@ -1,15 +1,13 @@
 {
-   "name": "karate-profile",
+   "name": "spoke-test",
    "version": "1.0.0",
-   "description": "Karate Profile",
+   "description": "Spoke Test",
    "main": "index.js",
    "scripts": {
-      "server-install": "cd server && npm install",
       "client:dev": "webpack-dev-server -d --watch --hot --open",
       "client:prod": "webpack -p",
-      "start": "concurrently \"npm run client:dev\" \"cd server && npm run server:dev\"",
       "sass-lint": "sass-lint client/app/sass/styles.sass --verbose -q",
-      "eslint": "eslint client/app/ server/api/",
+      "eslint": "eslint client/app/",
       "flow": "flow",
       "test": "jest"
    },
