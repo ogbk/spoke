@@ -1,5 +1,5 @@
 // const webpack = require('webpack');
-const { CLIENT_PORT, SERVER_PORT } = require('./port_config');
+const { CLIENT_PORT } = require('./port_config');
 
 require('dotenv').config();
 
@@ -12,11 +12,6 @@ module.exports = {
   devServer: {
     contentBase: `${__dirname}/client/public`,
     port: CLIENT_PORT,
-    proxy: {
-      '/api/**': {
-        'target': `http://localhost:${SERVER_PORT}`,
-      },
-    },
   },
   module: {
     rules: [
