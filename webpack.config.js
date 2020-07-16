@@ -1,7 +1,17 @@
-// const webpack = require('webpack');
-const { CLIENT_PORT } = require('./port_config');
+const webpack = require('webpack');
 
-require('dotenv').config();
+// CAPTURE .env variables
+const dotenv = require('dotenv');
+
+const env = dotenv.config().parsed;
+
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
+
+// GET PORT --
+const { CLIENT_PORT } = require('./port_config');
 
 module.exports = {
   entry: `${__dirname}/client/app/components/index.js`,
@@ -21,4 +31,7 @@ module.exports = {
       { test: /\.(txt|jl)$/i, use: 'raw-loader', exclude: /(node_modules)/ },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin(envKeys),
+  ],
 };
