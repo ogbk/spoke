@@ -1,15 +1,15 @@
-# Karate Profile
+# Spoke coding test
 
 ## Tech stack
 
 - React
+- React hooks `useReducer` - state management tool (lightweight alternative to Redux)
 - Sass - css preprocessor
 - Eslint - code linter
 - Jest & Enzyme - React testing tools
 
 - I did not use the following (app was fairly simple, no need for these):
-  - Redux
-  - React Router
+  - React Router - components were fairly simple, not too many pages to switch to
 
 ## App structure
 
