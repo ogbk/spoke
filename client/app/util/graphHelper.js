@@ -26,7 +26,7 @@ const query = `
   }
 `;
 
-const getProductsByName = (products, productTypes) => {
+const groupProductsByType = (products, productTypes) => {
 
   const ris = {};
 
@@ -55,4 +55,4 @@ const getProductsByName = (products, productTypes) => {
   return ris;
 };
 
-export { query, getProductsByName };
+export { query, groupProductsByType };

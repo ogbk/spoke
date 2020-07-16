@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Profile from './Profile';
 import NotFound from './NotFound';
 
-import { query, getProductsByName } from '../util/graphHelper';
+import { query, groupProductsByType } from '../util/graphHelper';
 import { Product } from '../util/datatypes';
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
 
           if (res.ok && res.status === 200) {
             const json = await res.json();
-            const { Heroes, Polo, Sharps } = getProductsByName(
+            const { Heroes, Polo, Sharps } = groupProductsByType(
               json.data.products.edges.map(({ node }) => node),
               ['Heroes', 'Sharps', 'Polo'],
             );
