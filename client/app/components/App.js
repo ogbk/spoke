@@ -1,51 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Profile from './Profile';
 import NotFound from './NotFound';
 
+import { query } from '../util/graphHelper';
+
 const App = () => {
-  const DEFAULT_PROFILE = 'ogbu_olu';
+  useEffect(
+    () => {
+      const fetchProducts = async () => {
+        try {
+          const res = await fetch(
+            process.env.API_URL,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-Shopify-Storefront-Access-Token': process.env.API_TOKEN,
+              },
+              body: JSON.stringify({ query }),
+            },
+          );
 
-  const [profileId, setProfileId] = useState(DEFAULT_PROFILE);
-  const [profileActive, setProfileActive] = useState(undefined);
-  const [profile, setProfile] = useState(undefined);
-
-  const handleChange = ({ target: { value } }) => {
-    setProfileId(value);
-  };
-
-  const handleSubmit = async (evt) => {
-    evt.preventDefault();
-
-    try {
-      const res = await fetch(`/api/${profileId}`);
-
-      if (res.ok && res.status === 200) {
-        const json = await res.json();
-        setProfile(json);
-        setProfileActive(true);
-      } else {
-        setProfileActive(false);
-      }
-    } catch (err) {
-      setProfileActive(false);
-    }
-  };
+          if (res.ok && res.status === 200) {
+            const json = await res.json();
+            console.log(json);
+          } else {
+            console.log('ERROR---');
+          }
+        } catch (err) {
+          console.log('REQUEST FAILED--', err);
+        }
+      };
+      fetchProducts();
+    },
+    [],
+  );
 
   return (
     <div className="App">
-
-      <form onSubmit={handleSubmit}>
-        <span>Find karate champion: </span>
-        <select className="search-column" value={profileId} onChange={handleChange}>
-          <option value="ogbu_olu">Ogbu Olu</option>
-          <option value="chuck_norris">Chuck Norris</option>
-        </select>
-        <button type="submit" className="click"> GET PROFILE </button>
-      </form>
-
-      <br />
-      { profileActive && <Profile profile={profile} profileId={profileId} /> }
-      { !profileActive && profileActive !== undefined && <NotFound /> }
+      tbc
     </div>
   );
 };
