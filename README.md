@@ -37,8 +37,8 @@ App also assumes:
 
 ## Running
 
-- If necessary, change the following default ports in `.port_config.js`:
-  - server [ 4000 ] & client [ 8080 ]
+- If necessary, change the following default port in `port_config.js`:
+  - client [ 8080 ]
 
     Alternatively, store this info in an `.env` file.
     ( Remember `.env` files are generally not committed on git )
@@ -47,7 +47,6 @@ App also assumes:
 - ```git clone``` or download this repository
 - ```cd ____``` or ```cd ____-master```
 - ```yarn install``` to download required packages (client-side)
-- ```yarn server-install``` to download required packages (server-side)
 - ```yarn start``` to run the application ==> it opens up a new browser
 
 
