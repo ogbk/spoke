@@ -37,11 +37,15 @@ App also assumes:
 
 ## Running
 
-- If necessary, change the following default port in `port_config.js`:
-  - client [ 8080 ]
+- You need an `.env` file (stored in the root folder) that exposes [ `API_URL` & `API_TOKEN` ]
+  
+    Remember `.env` files are generally NOT committed on git 
 
-    Alternatively, store this info in an `.env` file.
-    ( Remember `.env` files are generally not committed on git )
+- If necessary, change the following default application port in `port_config.js`:
+  - client [ 8080 ]
+    
+    Alternatively, store this info in the same `.env` file containing the tokens.
+    
 
 - Clone or download the application
 - ```git clone``` or download this repository
