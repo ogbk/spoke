@@ -1,4 +1,8 @@
-const query = `
+// @flow
+
+import type { ProductTypes_temp } from './datatypes';
+
+const query: string = `
   query {
     products (first: 50){
       edges {
@@ -26,8 +30,9 @@ const query = `
   }
 `;
 
-const groupProductsByType = (products, productTypes) => {
-
+const groupProductsByType = (
+  products: Array<any>, productTypes: Array<string>,
+): ProductTypes_temp => {
   const ris = {};
 
   products.forEach((v) => {
