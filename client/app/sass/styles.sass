@@ -1,0 +1,76 @@
+// sass-lint:disable nesting-depth
+// sass-lint:disable no-vendor-prefixes
+
+$blue: #00f
+$grey: #808080
+$green: #008000
+$red: #f00
+$black: #000
+$yellow: #ff0
+$white: #fff
+$primary-color: #1d7874
+
+$hover-color: #0f0 // green INSTEAD OF orange #ffa500 
+$border-color: #999
+$clicked-row-color: #0f0 // green
+
+.hide
+  visibility: hidden
+
+.good
+  color: $green
+
+.error
+  color: $red
+
+*
+  color: $primary-color
+  font-size: 1em
+
+body
+  font-family: sans-serif, Consolas
+
+.click
+  cursor: pointer
+
+.hover-row
+  background-color: $hover-color
+
+.clicked-row
+  background-color: $clicked-row-color
+
+.search-column
+  border: 0
+  border-bottom: 1px solid $blue
+  display: inline-block
+  margin-left: 1em
+  margin-right: 1em
+  outline: none
+
+.profile-page
+  display: flex
+  flex-direction: row
+  width: 100%
+
+  img
+    display: inline-block
+    flex-grow: 1
+    height: auto
+    min-width: 1em
+
+  .profile-details
+    flex-grow: 3
+    margin-left: 1em
+    min-width: 20%
+
+.field-key
+  color: $black
+
+.field-value
+  font-size: 1.3em
+  margin-bottom: 2em
+
+.field-value-list
+  font-size: 1.3em
+  margin-bottom: .2em
+
