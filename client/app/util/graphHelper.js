@@ -4,7 +4,7 @@ const query = `
       edges {
         node {
           id
-          images (first: 50) {
+          images (first: 2) {
             edges {
               node {
                 originalSrc
@@ -26,4 +26,33 @@ const query = `
   }
 `;
 
-export { query };
+const getProductsByName = (products, productTypes) => {
+
+  const ris = {};
+
+  products.forEach((v) => {
+    if (productTypes.includes(v.productType)) {
+      const {
+        id, images, priceRange, productType, tags, title, updatedAt,
+      } = v;
+
+      if (!ris[productType]) {
+        ris[productType] = [];
+      }
+
+      ris[productType].push({
+        id,
+        images: images.edges.map(({ node: { originalSrc } }) => originalSrc),
+        priceRange: priceRange.maxVariantPrice.amount,
+        productType,
+        tags,
+        title,
+        updatedAt,
+      });
+    }
+  });
+
+  return ris;
+};
+
+export { query, getProductsByName };

@@ -18,22 +18,24 @@
 
 ## Coding techniques / styles
 
-## App enhancement
+  ### fetching graphql data
+  - as per instruction: fetch the first 50 products
+  - fetch the first 2 images for each product - we need only these in `ProductList` and `Product`.
+  - grouping the products as arrays in object items `{'Heroes': [...], 'Polos': [...], 'Sharps': [...]}`:
+    - done via object / array manipulation in `graphhelper.js` because the graphql server doesn't permit the following:
+        - optaining 3 sets of renamed queries (observe that `Polo` is renamed to `Polos`)
+          ```
+          query{
+            Heroes: products(first:50, productType: 'Heroes'){...}
+            Sharps: products(first:50, productType: 'Sharps'){...}
+            Polos: products(first:50, productType: 'Polo'){...}
+          }
+          ```
+
 
 ## Application
 
-When it starts, user can select one of 2 profiles:
-- mine (Ogbu Olu) -> main purpose of the application
-  - displays a profile picture and some data via `<Profile/>` component
-- another (Chuck Norris) -> 
-  - this profile record is deliberately not stored on `profiles.json` [ server data ]
-  - So the app handles this missing record, sending an appropriate `<NotFound/>` component
-  - (And besides, Chuck Norris is great in judo and brazilian jiu-jitsu, not karate ;))
-
-App also assumes:
-  - server (api) has `assets/img/` folder where the `req.params.id` extracted from express `req.url` corresponds to a particular jpeg image file.
-
-  - each profile corresponds to a unique id ==> `req.params.id`
+When it starts, ...
 
 ## Running
 
