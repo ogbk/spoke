@@ -1,13 +1,18 @@
 // @flow
 
 import React, { useState, useEffect } from 'react';
-// import Profile from './Profile';
-// import NotFound from './NotFound';
+import ProductList from './ProductList';
+import Cart from './Cart';
+import FetchError from './FetchError';
 
 import { query, groupProductsByType } from '../util/graphHelper';
 import type { ProductTypes_temp, ProductTypes } from '../util/datatypes';
 
 const App = () => {
+  const NO_ERROR: string = '';
+
+  const [fetchError, setFetchError]: [string, any] = useState(NO_ERROR);
+  const [loading, setLoading]: [boolean, any] = useState(false);
   const [products, setProducts]: [ProductTypes, any] = useState({});
 
   useEffect(
@@ -32,11 +37,18 @@ const App = () => {
           );
 
           if (res.ok && res.status === 200) {
+            setFetchError(NO_ERROR);
+
             const json = await res.json();
+
+console.log('json', json);
+
             const { Heroes, Polo, Sharps }: ProductTypes_temp = groupProductsByType(
               json.data.products.edges.map(({ node }) => node),
               ['Heroes', 'Sharps', 'Polo'],
             );
+
+console.log({ Heroes, Polo, Sharps });
 
             setProducts({
               Heroes,
@@ -44,10 +56,10 @@ const App = () => {
               Sharps,
             });
           } else {
-            console.log('ERROR---');
+            setFetchError('Server issue');
           }
         } catch (err) {
-          console.log('REQUEST FAILED--', err);
+          setFetchError(err);
         }
       };
       fetchProducts();
@@ -55,9 +67,14 @@ const App = () => {
     [],
   );
 
+  if (fetchError) {
+    return (<FetchError error={fetchError} />);
+  }
+
   return (
-    <div className="App">
-      tbc
+    <div className="app">
+      <ProductList />
+      <Cart />
     </div>
   );
 };
