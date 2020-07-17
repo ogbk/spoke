@@ -6,7 +6,7 @@ import Cart from './Cart';
 import FetchError from './FetchError';
 
 import { query, groupProductsByType } from '../util/graphHelper';
-import type { ProductTypes_temp, ProductTypes } from '../util/datatypes';
+import type { ProductTypes_temp, ProductTypes, CartType } from '../util/datatypes';
 
 const App = () => {
   const NO_ERROR: string = '';
@@ -14,6 +14,7 @@ const App = () => {
   const [fetchError, setFetchError]: [string, any] = useState(NO_ERROR);
   const [loading, setLoading]: [boolean, any] = useState(false);
   const [products, setProducts]: [ProductTypes, any] = useState({});
+  const [cart, setCart]: [CartType, any] = useState([]);
 
   useEffect(
     () => {
@@ -41,14 +42,10 @@ const App = () => {
 
             const json = await res.json();
 
-console.log('json', json);
-
             const { Heroes, Polo, Sharps }: ProductTypes_temp = groupProductsByType(
               json.data.products.edges.map(({ node }) => node),
               ['Heroes', 'Sharps', 'Polo'],
             );
-
-console.log({ Heroes, Polo, Sharps });
 
             setProducts({
               Heroes,
@@ -73,7 +70,7 @@ console.log({ Heroes, Polo, Sharps });
 
   return (
     <div className="app">
-      <ProductList />
+      <ProductList products={products} />
       <Cart />
     </div>
   );

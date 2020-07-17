@@ -23,3 +23,16 @@ export type ProductTypes = {
   'Sharps': ProductList,
   'Polos': ProductList
 };
+
+export type CartItem = {
+  id: string,
+  price: number,
+  images: Array<string>,
+  productType: string,
+  title: string,
+  tags: Array<string>,
+  updatedAt: string,
+  count: number,
+};
+
+export type CartType = Array<CartItem>;
