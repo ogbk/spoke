@@ -48,7 +48,7 @@ const groupProductsByType = (
       ris[productType].push({
         id,
         images: images.edges.map(({ node: { originalSrc } }) => originalSrc),
-        priceRange: priceRange.maxVariantPrice.amount,
+        price: priceRange.maxVariantPrice.amount,
         productType,
         tags,
         title,
