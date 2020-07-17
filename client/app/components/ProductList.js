@@ -9,9 +9,7 @@ type Props = {
 }
 
 const ProductList = ({ products }: Props) => {
-  console.log('products', products);
   const productTypes = Object.keys(products);
-  console.log('productTypes', productTypes);
 
   return (
     <div className="products">
