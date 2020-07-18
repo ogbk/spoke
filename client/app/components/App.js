@@ -42,16 +42,12 @@ const App = () => {
 
             const json = await res.json();
 
-            const { Heroes, Polo, Sharps }: ProductTypes_temp = groupProductsByType(
+            const { Heroes, Polo: Polos, Sharps }: ProductTypes_temp = groupProductsByType(
               json.data.products.edges.map(({ node }) => node),
               ['Heroes', 'Sharps', 'Polo'],
             );
 
-            setProducts({
-              Heroes,
-              Polos: Polo,
-              Sharps,
-            });
+            setProducts({ Heroes, Polos, Sharps });
           } else {
             setFetchError('Server issue');
           }
