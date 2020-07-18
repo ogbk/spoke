@@ -5,10 +5,11 @@ import React, { useState, useEffect } from 'react';
 import type { ProductTypes } from '../util/datatypes';
 
 type Props = {
-  products: ProductTypes
+  products: ProductTypes,
+  dispatch: any,
 }
 
-const ProductList = ({ products }: Props) => {
+const ProductList = ({ products, dispatch }: Props) => {
   const productTypes = Object.keys(products);
 
   return (
@@ -24,7 +25,18 @@ const ProductList = ({ products }: Props) => {
               products[productType].map(({ id, price }) => (
                 <span key={id}>
                   {id}----{price}----
-                  <button type="button">ADD</button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      dispatch({
+                        type: 'ADD',
+                        productId: id,
+                        productType,
+                        quantity: 1,
+                      });
+                    }}
+                  >ADD
+                  </button>
                 </span>
               ))
             }

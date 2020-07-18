@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import type { CartType } from '../util/datatypes';
 
-const Cart = () => {
+type Props = {
+  cart: CartType,
+  dispatch: any,
+}
+
+const Cart = ({ cart }): Props => {
 
   return (
     <div className="cart">
-      Cart
+      Cart : {cart.length}
     </div>
   );
 };

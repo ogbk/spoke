@@ -32,7 +32,12 @@ export type CartItem = {
   title: string,
   tags: Array<string>,
   updatedAt: string,
-  count: number,
+  quantity: number,
 };
 
 export type CartType = Array<CartItem>;
+
+export type StoreType = {
+  cart: CartItem,
+  products: ProductTypes,
+};
