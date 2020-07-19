@@ -43,4 +43,6 @@ export type StoreType = {
   cart: CartItem,
   products: ProductTypes,
   currentPage: PageType,
+  selectedProductId: string,
+  selectedProductType: string,
 };

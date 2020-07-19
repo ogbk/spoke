@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import { openProduct } from '../util/actions';
 import type { ProductTypes } from '../util/datatypes';
 
 type Props = {
@@ -43,6 +44,14 @@ const ProductList = ({ products, dispatch }: Props) => {
                 <img
                   src={images[0] || NO_IMAGE}
                   alt={title}
+                  className="click"
+                  onClick={() => {
+                    dispatch({
+                      ...openProduct,
+                      productId: id,
+                      productType: selectedType,
+                    });
+                  }}
                 />
               </div>
 

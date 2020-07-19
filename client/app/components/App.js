@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useReducer } from 'react';
 import ProductList from './ProductList';
+import Product from './Product';
 import Cart from './Cart';
 import Header from './Header';
 import FetchError from './FetchError';
@@ -68,6 +69,8 @@ const App = () => {
     products,
     cart,
     currentPage,
+    selectedProductId,
+    selectedProductType,
   } = store;
 
   return (
@@ -75,6 +78,11 @@ const App = () => {
       <Header currentPage={currentPage} dispatch={dispatch} />
       {currentPage === 'PRODUCTS_LIST' && <ProductList products={products} dispatch={dispatch} /> }
       {currentPage === 'CART' && <Cart cart={cart} dispatch={dispatch} /> }
+      {currentPage === 'PRODUCT' && (
+        <Product
+          products={products} id={selectedProductId} type={selectedProductType} dispatch={dispatch}
+        />
+      ) }
     </div>
   );
 };

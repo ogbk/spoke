@@ -5,6 +5,8 @@ const initialState: StoreType = {
   'cart': [],
   'products': {},
   'currentPage': 'PRODUCTS_LIST',
+  'selectedProductId': '',
+  'selectedProductType': '',
 };
 
 const reducer = (state: StoreType, action: any) => {
@@ -17,9 +19,17 @@ const reducer = (state: StoreType, action: any) => {
     }
 
     case 'SET_PAGE': {
+      if (action.page !== 'PRODUCT') {
+        return {
+          ...state,
+          'currentPage': action.page,
+        };
+      }
       return {
         ...state,
         'currentPage': action.page,
+        'selectedProductId': action.productId,
+        'selectedProductType': action.productType,
       };
     }
 
