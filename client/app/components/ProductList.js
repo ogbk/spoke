@@ -42,23 +42,43 @@ const ProductList = ({ products, dispatch }: Props) => {
       <div>
         {
           products[selectedType]
-          && products[selectedType].map(({ id, price }) => (
-            <span key={id}>
-              {id}----{price}----
-              <button
-                type="button"
-                className="click"
-                onClick={() => {
-                  dispatch({
-                    type: 'ADD',
-                    productId: id,
-                    productType: selectedType,
-                    quantity: 1,
-                  });
-                }}
-              >ADD
-              </button>
-            </span>
+          && products[selectedType].map(({
+            id, images, tags, title,
+          }) => (
+            <div key={id} className="productslist-entry">
+              <img
+                src={images[0]}
+                alt={title}
+              />
+
+              <div className="productslist-details">
+                <div>{tags.includes('new') ? 'New' : '' }</div>
+                <div>{selectedType}</div>
+                <div>{title}</div>
+                <div>
+                  <button
+                    type="button"
+                    className="click add-cart"
+                    onClick={() => {
+                      dispatch({
+                        type: 'ADD',
+                        productId: id,
+                        productType: selectedType,
+                        quantity: 1,
+                      });
+                    }}
+                  >ADD TO BASKET
+                  </button>
+                  Quantity:
+                  <input
+                    className="input-quantity"
+                    type="text"
+                    value="3"
+                    onClick={() => {}}
+                  />
+                </div>
+              </div>
+            </div>
           ))
         }
       </div>

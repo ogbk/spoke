@@ -14,11 +14,28 @@ $hover-color: #0f0 // green INSTEAD OF orange #ffa500
 $border-color: #999
 $clicked-row-color: #0f0 // green
 
+*
+  color: $black
+  font-size: 1em
+
+body
+  font-family: sans-serif, Consolas
+
 .click
   cursor: pointer
 
 .app
   width: 100%
+
+  .input-quantity
+    border: 0
+    border-bottom: 1px solid $primary-color
+    width: 3em
+
+  .add-cart
+    background-color: $black
+    border: none
+    color: $white
 
   .cart,
   .product,
@@ -38,6 +55,16 @@ $clicked-row-color: #0f0 // green
         &.selected-type
             border-bottom: 1px solid blue
 
+    .productslist-entry
+      display: flex
+      height: 180px
+      img
+        width: auto
+        height: 170px
+      .productslist-details
+        display: flex
+        flex-direction: column
+
 .hide
   visibility: hidden
 
@@ -47,12 +74,7 @@ $clicked-row-color: #0f0 // green
 .error
   color: $red
 
-*
-  color: $primary-color
-  font-size: 1em
 
-body
-  font-family: sans-serif, Consolas
 
 
 .hover-row
