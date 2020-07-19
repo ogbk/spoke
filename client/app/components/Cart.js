@@ -11,14 +11,7 @@ const Cart = ({ cart, dispatch }): Props => {
 
   return (
     <div className="cart">
-      <div className="page-header">
-        <div
-          className="page-main click"
-          onClick={() => { dispatch(openProductsList); }}
-        >BACK: {cart.length}
-        </div>
-      </div>
-
+      {cart.length}
     </div>
   );
 };

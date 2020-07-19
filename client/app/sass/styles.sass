@@ -31,8 +31,8 @@ body
   visibility: hidden
 
 .app
-  width: 100%
-
+  margin: 1em
+  
   .input-quantity
     border: 0
     border-bottom: 1px solid $primary-color
@@ -44,14 +44,19 @@ body
     border: none
     color: $white
 
+  .page-header
+    display: flex
+    justify-content: space-between
+    margin-bottom: 1em
+    .page-back,
+    .page-cart
+      width: 2.5em
+
   .cart,
   .product,
   .products
     width: 100%
-    .page-header
-      display: flex
-      justify-content: space-between
-      margin-bottom: 1em
+
   
   .products
     .products-header

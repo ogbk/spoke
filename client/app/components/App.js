@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import ProductList from './ProductList';
 import Cart from './Cart';
+import Header from './Header';
 import FetchError from './FetchError';
 
 import { query, groupProductsByType } from '../util/graphHelper';
@@ -71,6 +72,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <Header currentPage={currentPage} dispatch={dispatch} />
       {currentPage === 'PRODUCTS_LIST' && <ProductList products={products} dispatch={dispatch} /> }
       {currentPage === 'CART' && <Cart cart={cart} dispatch={dispatch} /> }
     </div>
