@@ -13,8 +13,20 @@
 
 ## App structure
 
-- main component : ```<App/>```
-- sub components: ```<Profile/>``` , ```<NotFound/>```
+- main component : ```<App/>```, it contains and shows the following:
+- sub components: ```<ProductList/>``` , ```<Product/>```, ```<Cart/>```,
+- error handling component: `<FetchError/>`
+
+## Component layout
+- `<App/>`: on loading, it fetches the requested products from a graphql API
+- `<ProductList/>`: shows all products & groups them by type. 
+  - The image [ `products.jpg` ] is a bit misleading:
+    - it doesn't account for the fact products CANNOT be grouped by their type because the items in a given type don't have the same attributes and price.
+    - When you click on a particular type it's not exactly clear WHAT to show: a product or products of a given type.
+    - I decided to group the products together by their types and allow user to select a particular group at a time.
+- `<Product/>`: a particular product
+- `<Cart/>`: list of selected items.
+  - Here too, the picture is misleading, showing NOT the items but the product types of the items.
 
 ## Coding techniques / styles
 
