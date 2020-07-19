@@ -17,6 +17,7 @@ const ProductList = ({ products, dispatch }: Props) => {
   const DEFAULT_TYPE = 'Heroes';
 
   const [selectedType, setSelectedType] = useState(DEFAULT_TYPE);
+  const [itemsQuantity, setItemsQuantity] = useState({});
 
   return (
     <div className="products">
@@ -68,7 +69,7 @@ const ProductList = ({ products, dispatch }: Props) => {
                         type: 'ADD',
                         productId: id,
                         productType: selectedType,
-                        quantity: 1,
+                        quantity: itemsQuantity[id] || 1,
                       });
                     }}
                   >ADD TO BASKET
@@ -77,8 +78,13 @@ const ProductList = ({ products, dispatch }: Props) => {
                   <input
                     className="input-quantity"
                     type="text"
-                    value="3"
-                    onClick={() => {}}
+                    value={itemsQuantity[id] || 1}
+                    onChange={(e) => {
+                      setItemsQuantity({
+                        ...itemsQuantity,
+                        [id]: Number(e.target.value.replace(/[^0-9]/g, '')),
+                      });
+                    }}
                   />
                 </div>
               </div>

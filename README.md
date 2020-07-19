@@ -24,6 +24,13 @@
     - it doesn't account for the fact products CANNOT be grouped by their type because the items in a given type don't have the same attributes and price.
     - When you click on a particular type it's not exactly clear WHAT to show: a product or products of a given type.
     - I decided to group the products together by their types and allow user to select a particular group at a time.
+  - Here and in `<Product/>`, when user can select the number of a particular product to add to cart
+    - eg. buy quantity: 12 of item id: 'mock_prod_id'
+    - in both components, there is a value `itemsQuantity` which stores the selected quantity of an particular product id.
+    - if `itemsQuantity[mock_prod_id_1234]` doesn't exist, then default value is 1.
+    - `itemsQuantity[mock_prod_id_1234]` can contain only numbers - filters out anything else being typed using regex.
+    - when user returns back to `<ProductList/>` or `<Product/>` - `itemsQuantity[mock_prod_id_1234]` is cleared do default value is 1.
+      - This would help user not to purchase multple products my mistake (eg. when they are in a hurry and don't notice a previous choice)
 - `<Product/>`: a particular product
 - `<Cart/>`: list of selected items.
   - Here too, the picture is misleading, showing NOT the items but the product types of the items.
