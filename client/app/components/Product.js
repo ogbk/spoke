@@ -31,7 +31,7 @@ const Product = ({ products, id, type, dispatch }: Props) => {
         </div>
 
         <div className="productslist-details">
-          <div className={tags.includes('new') ? 'is-new' : 'not-new'}>[NEW]</div>
+          <div className={tags.some((x) => (x.toLowerCase() === 'new')) ? 'is-new' : 'not-new'}>[NEW]</div>
           <div>{type}</div>
           <div>{title}</div>
           <div className="detail-add">
