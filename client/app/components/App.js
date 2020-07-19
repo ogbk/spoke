@@ -5,6 +5,7 @@ import ProductList from './ProductList';
 import Product from './Product';
 import Cart from './Cart';
 import Header from './Header';
+import Loading from './Loading';
 import FetchError from './FetchError';
 
 import { query, groupProductsByType } from '../util/graphHelper';
@@ -15,7 +16,7 @@ const App = () => {
   const NO_ERROR: string = '';
 
   const [fetchError, setFetchError]: [string, any] = useState(NO_ERROR);
-  const [loading, setLoading]: [boolean, any] = useState(false);
+  const [loading, setLoading]: [boolean, any] = useState(true);
   const [store, dispatch] = useReducer(reducer, initialState);
 
   useEffect(
@@ -38,6 +39,7 @@ const App = () => {
               body: JSON.stringify({ query }),
             },
           );
+          setLoading(false);
 
           if (res.ok && res.status === 200) {
             setFetchError(NO_ERROR);
@@ -51,8 +53,11 @@ const App = () => {
               type: 'SET_PRODUCTS',
               newProducts: { Heroes, Polos, Sharps },
             });
-          } else { setFetchError('Server issue'); }
+          } else {
+            setFetchError('Server issue');
+          }
         } catch (err) {
+          setLoading(false);
           setFetchError(err);
         }
       };
@@ -60,6 +65,10 @@ const App = () => {
     },
     [],
   );
+
+  if (loading) {
+    return (<Loading />);
+  }
 
   if (fetchError) {
     return (<FetchError error={fetchError} />);

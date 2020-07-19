@@ -16,6 +16,7 @@
 - main component : ```<App/>```, it contains and shows the following:
 - sub components: ```<ProductList/>``` , ```<Product/>```, ```<Cart/>```,
 - header component: `<Header/>`: to redirect user to the requested page
+- data still loading: `<Loading/>`
 - error handling component: `<FetchError/>`
 
 ## Component layout
