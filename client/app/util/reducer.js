@@ -4,6 +4,7 @@ import { getItemCartIndexById, findProduct, updateCartQuantity } from './reducer
 const initialState: StoreType = {
   'cart': [],
   'products': {},
+  'currentPage': 'PRODUCTS_LIST',
 };
 
 const reducer = (state: StoreType, action: any) => {
@@ -12,6 +13,13 @@ const reducer = (state: StoreType, action: any) => {
       return {
         ...state,
         'products': action.newProducts,
+      };
+    }
+
+    case 'SET_PAGE': {
+      return {
+        ...state,
+        'currentPage': action.page,
       };
     }
 

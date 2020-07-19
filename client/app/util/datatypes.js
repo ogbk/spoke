@@ -37,7 +37,10 @@ export type CartItem = {
 
 export type CartType = Array<CartItem>;
 
+type PageType = 'PRODUCTS_LIST' | 'PRODUCT' | 'CART';
+
 export type StoreType = {
   cart: CartItem,
   products: ProductTypes,
+  currentPage: PageType,
 };
