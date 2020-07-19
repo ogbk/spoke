@@ -21,8 +21,8 @@ const Product = ({ products, id, type, dispatch }: Props) => {
   );
 
   return (
-    <div className="products">
-      <div key={id} className="productslist-entry">
+    <div className="product">
+      <div key={id} className="product-entry">
         <div className="image-container">
           <img
             src={images[1] || NO_IMAGE}
@@ -30,10 +30,11 @@ const Product = ({ products, id, type, dispatch }: Props) => {
           />
         </div>
 
-        <div className="productslist-details">
+        <div className="product-details">
           <div className={tags.some((x) => (x.toLowerCase() === 'new')) ? 'is-new' : 'not-new'}>[NEW]</div>
           <div>{type}</div>
           <div>{title}</div>
+          <div>£{price.toFixed(2)}</div>
           <div className="detail-add">
             <button
               type="button"
