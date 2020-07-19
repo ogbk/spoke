@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import { openCart } from '../util/actions';
 import type { ProductTypes } from '../util/datatypes';
 
 type Props = {
@@ -17,7 +18,14 @@ const ProductList = ({ products, dispatch }: Props) => {
 
   return (
     <div className="products">
-      <div className="page-info">ALL PRODUCTS</div>
+      <div className="page-header">
+        <div className="page-main">ALL PRODUCTS</div>
+        <div
+          className="page-cart click"
+          onClick={() => { dispatch(openCart); }}
+        >CART
+        </div>
+      </div>
 
       <div className="products-header">
         {productTypes.map((thisProductType, idx) => (

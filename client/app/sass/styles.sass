@@ -18,14 +18,15 @@ $clicked-row-color: #0f0 // green
   cursor: pointer
 
 .app
-  display: flex
-  flex-direction: row
   width: 100%
 
   .cart,
+  .product,
   .products
     width: 100%
-    .page-info
+    .page-header
+      display: flex
+      justify-content: space-between
       margin-bottom: 1em
   
   .products

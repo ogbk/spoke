@@ -63,10 +63,16 @@ const App = () => {
     return (<FetchError error={fetchError} />);
   }
 
+  const {
+    products,
+    cart,
+    currentPage,
+  } = store;
+
   return (
     <div className="app">
-      <ProductList products={store.products} dispatch={dispatch} />
-      <Cart cart={store.cart} dispatch={dispatch} />
+      {currentPage === 'PRODUCTS_LIST' && <ProductList products={products} dispatch={dispatch} /> }
+      {currentPage === 'CART' && <Cart cart={cart} dispatch={dispatch} /> }
     </div>
   );
 };

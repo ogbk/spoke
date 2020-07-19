@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { openProductsList } from '../util/actions';
 import type { CartType } from '../util/datatypes';
 
 type Props = {
@@ -6,11 +7,18 @@ type Props = {
   dispatch: any,
 }
 
-const Cart = ({ cart }): Props => {
+const Cart = ({ cart, dispatch }): Props => {
 
   return (
     <div className="cart">
-      Cart : {cart.length}
+      <div className="page-header">
+        <div
+          className="page-main click"
+          onClick={() => { dispatch(openProductsList); }}
+        >BACK: {cart.length}
+        </div>
+      </div>
+
     </div>
   );
 };
