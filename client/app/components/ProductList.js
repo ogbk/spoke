@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import type { ProductTypes } from '../util/datatypes';
 
@@ -11,40 +11,49 @@ type Props = {
 
 const ProductList = ({ products, dispatch }: Props) => {
   const productTypes = Object.keys(products);
+  const DEFAULT_TYPE = 'Heroes';
+
+  const [selectedType, setSelectedType] = useState(DEFAULT_TYPE);
 
   return (
     <div className="products">
-      {`ProductList`}
+      <div className="page-info">ALL PRODUCTS</div>
 
-      {
-        productTypes.map((productType) => (
-          <div key={productType}>
-            <br />
-            <h6>{ productType }</h6>
-            {
-              products[productType].map(({ id, price }) => (
-                <span key={id}>
-                  {id}----{price}----
-                  <button
-                    type="button"
-                    onClick={() => {
-                      dispatch({
-                        type: 'ADD',
-                        productId: id,
-                        productType,
-                        quantity: 1,
-                      });
-                    }}
-                  >ADD
-                  </button>
-                </span>
-              ))
-            }
+      <div className="products-header">
+        {productTypes.map((thisProductType, idx) => (
+          <span
+            className={thisProductType === selectedType ? 'click selected-type' : 'click'}
+            onClick={() => { setSelectedType(thisProductType); }}
+            key={`${thisProductType}-${idx}`}
+          >
+            {thisProductType}
+          </span>
+        ))}
+      </div>
 
-            <hr />
-          </div>
-        ))
-      }
+      <div>
+        {
+          products[selectedType]
+          && products[selectedType].map(({ id, price }) => (
+            <span key={id}>
+              {id}----{price}----
+              <button
+                type="button"
+                className="click"
+                onClick={() => {
+                  dispatch({
+                    type: 'ADD',
+                    productId: id,
+                    productType: selectedType,
+                    quantity: 1,
+                  });
+                }}
+              >ADD
+              </button>
+            </span>
+          ))
+        }
+      </div>
     </div>
   );
 };
