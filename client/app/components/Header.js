@@ -12,7 +12,7 @@ type Props = {
   dispatch: any,
 }
 
-const Header = ({ currentPage, dispatch }): Props => {
+const Header = ({ currentPage, dispatch }: Props) => {
   return (
     <div className="page-header">
       {
