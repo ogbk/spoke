@@ -24,6 +24,12 @@ body
 .click
   cursor: pointer
 
+.is-new
+  color: $red
+
+.not-new
+  visibility: hidden
+
 .app
   width: 100%
 
@@ -48,7 +54,7 @@ body
   
   .products
     .products-header
-      margin-bottom: 1em
+      margin-bottom: 2.5em
       span
         margin-right: 1em
 
@@ -58,12 +64,21 @@ body
     .productslist-entry
       display: flex
       height: 180px
-      img
-        width: auto
-        height: 170px
+      .image-container
+        margin-right: 15px
+        width: 120px
+        img
+          max-width: 120px
+          height: 150px
       .productslist-details
         display: flex
         flex-direction: column
+        font-size: 1.2em
+        div
+          margin-bottom: 0.5em
+          &.detail-add
+            button
+              margin-right: 1em
 
 .hide
   visibility: hidden

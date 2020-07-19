@@ -10,6 +10,8 @@ type Props = {
   dispatch: any,
 }
 
+const NO_IMAGE = 'img/image_missing.png';
+
 const ProductList = ({ products, dispatch }: Props) => {
   const productTypes = Object.keys(products);
   const DEFAULT_TYPE = 'Heroes';
@@ -46,16 +48,18 @@ const ProductList = ({ products, dispatch }: Props) => {
             id, images, tags, title,
           }) => (
             <div key={id} className="productslist-entry">
-              <img
-                src={images[0]}
-                alt={title}
-              />
+              <div className="image-container">
+                <img
+                  src={images[0] || NO_IMAGE}
+                  alt={title}
+                />
+              </div>
 
               <div className="productslist-details">
-                <div>{tags.includes('new') ? 'New' : '' }</div>
+                <div className={tags.includes('new') ? 'is-new' : 'not-new'}>[NEW]</div>
                 <div>{selectedType}</div>
                 <div>{title}</div>
-                <div>
+                <div className="detail-add">
                   <button
                     type="button"
                     className="click add-cart"
