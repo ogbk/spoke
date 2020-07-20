@@ -1,9 +1,15 @@
-import { StoreType } from './datatypes';
+// @flow
+
+import type { StoreType } from './datatypes';
 import { getItemCartIndexById, findProduct, updateCartQuantity } from './reducerHelper';
 
 const initialState: StoreType = {
   'cart': [],
-  'products': {},
+  'products': {
+    'Heroes': [],
+    'Sharps': [],
+    'Polos': [],
+  },
   'currentPage': 'PRODUCTS_LIST',
   'selectedProductId': '',
   'selectedProductType': '',

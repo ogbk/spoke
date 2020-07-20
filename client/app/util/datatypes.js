@@ -40,7 +40,7 @@ export type CartType = Array<CartItem>;
 type PageType = 'PRODUCTS_LIST' | 'PRODUCT' | 'CART';
 
 export type StoreType = {
-  cart: CartItem,
+  cart: CartType,
   products: ProductTypes,
   currentPage: PageType,
   selectedProductId: string,

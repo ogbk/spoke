@@ -1,3 +1,5 @@
+// @flow
+
 import type { StoreType } from './datatypes';
 
 // retrieve index of item in [ store.cart ] using id provided

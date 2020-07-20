@@ -29,7 +29,9 @@ const Cart = ({ cart, dispatch }: Props) => {
         <span>MY CART - TOTAL: </span> <span className="input-quantity">{total} </span>
       </div>
 
-      {cart.map(({ id, title, images, price, productType, quantity }) => (
+      {cart.map(({
+        id, title, images, price, productType, quantity,
+      }) => (
         <div key={id} className="productslist-entry productslist-entry-cart">
           <div className="image-container-cart">
             <img

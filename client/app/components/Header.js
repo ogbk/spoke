@@ -12,35 +12,33 @@ type Props = {
   dispatch: any,
 }
 
-const Header = ({ currentPage, dispatch }: Props) => {
-  return (
-    <div className="page-header">
-      {
-        currentPage === 'PRODUCTS_LIST'
-          ? <div className="page-main">ALL PRODUCTS</div>
-          : (
-            <img
-              className="page-back click"
-              src={BACK}
-              alt="BACK"
-              onClick={() => { dispatch(openProductsList); }}
-            />
-          )
-      }
-
-      {
-        currentPage !== 'CART'
-        && (
+const Header = ({ currentPage, dispatch }: Props) => (
+  <div className="page-header">
+    {
+      currentPage === 'PRODUCTS_LIST'
+        ? <div className="page-main">ALL PRODUCTS</div>
+        : (
           <img
-            className="page-cart click"
-            src={CART}
-            alt="CART"
-            onClick={() => { dispatch(openCart); }}
+            className="page-back click"
+            src={BACK}
+            alt="BACK"
+            onClick={() => { dispatch(openProductsList); }}
           />
         )
-      }
-    </div>
-  );
-};
+    }
+
+    {
+      currentPage !== 'CART'
+      && (
+        <img
+          className="page-cart click"
+          src={CART}
+          alt="CART"
+          onClick={() => { dispatch(openCart); }}
+        />
+      )
+    }
+  </div>
+);
 
 export default Header;

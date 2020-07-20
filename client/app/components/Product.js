@@ -13,10 +13,14 @@ type Props = {
 
 const NO_IMAGE = 'img/image_missing.png';
 
-const Product = ({ products, id, type, dispatch }: Props) => {
+const Product = ({
+  products, id, type, dispatch,
+}: Props) => {
   const [itemsQuantity, setItemsQuantity] = useState({});
 
-  const { images, tags, title, price } = products[type].find(
+  const {
+    images, tags, title, price,
+  } = products[type].find(
     ({ id: prodId }) => (id === prodId),
   );
 
