@@ -6,7 +6,7 @@
 - React hooks `useReducer` - state management tool (lightweight alternative to Redux)
 - Sass - css preprocessor
 - Eslint - code linter
-- Jest & Enzyme - React testing tools
+- Jest - testing framework
 
 - I did not use the following (app was fairly simple, no need for these):
   - React Router - components were fairly simple, not too many pages to switch to
@@ -85,6 +85,6 @@
 - Run flow `yarn flow status`
 
 
-## Testing with jest & enzyme
+## Testing with jest
 
 - test: `yarn test`
