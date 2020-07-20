@@ -1,6 +1,7 @@
 // @flow
 
 import React, { useEffect, useState } from 'react';
+import { computeTotal } from '../util/functions';
 import type { CartType } from '../util/datatypes';
 
 type Props = {
@@ -15,11 +16,8 @@ const Cart = ({ cart, dispatch }: Props) => {
 
   useEffect(
     () => {
-      let ris = 0;
-      cart.forEach(({ quantity, price }) => {
-        ris += (quantity * price);
-      });
-      setTotal(ris);
+      const getTotal = computeTotal(cart);
+      setTotal(getTotal);
     },
   );
 
