@@ -33,6 +33,13 @@ const reducer = (state: StoreType, action: any) => {
       };
     }
 
+    case 'DELETE': {
+      const newState = { ...state };
+      const foundIndex = getItemCartIndexById(newState, action.productId);
+      newState.cart.splice(foundIndex, 1);
+      return newState;
+    }
+
     case 'ADD': {
       const foundIndex = getItemCartIndexById(state, action.productId);
       if (foundIndex >= 0) {

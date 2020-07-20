@@ -9,6 +9,7 @@ $black: #000
 $yellow: #ff0
 $white: #fff
 $primary-color: #1d7874
+$brown: #964B00
 
 $hover-color: #0f0 // green INSTEAD OF orange #ffa500 
 $border-color: #999
@@ -44,6 +45,12 @@ body
     border: none
     color: $white
 
+  .delete-cart
+    background-color: $brown
+    border: none
+    color: $white
+    margin-left: 2em
+
   .page-header
     display: flex
     justify-content: space-between
@@ -70,12 +77,25 @@ body
     .productslist-entry
       display: flex
       height: 180px
+      &.productslist-entry-cart
+        height: 90px
       .image-container
         margin-right: 15px
         width: 120px
         img
           max-width: 120px
           height: 150px
+          &.cart-image
+            height: 70px
+
+      .image-container-cart
+        margin-right: 5px
+        width: 80px
+        img
+          max-width: 80px
+          height: 150px
+          &.cart-image
+            height: 70px
       .productslist-details
         display: flex
         flex-direction: column
@@ -105,57 +125,4 @@ body
           &.detail-add
             button
               margin-right: 1em
-
-.hide
-  visibility: hidden
-
-.good
-  color: $green
-
-.error
-  color: $red
-
-
-
-
-.hover-row
-  background-color: $hover-color
-
-.clicked-row
-  background-color: $clicked-row-color
-
-.search-column
-  border: 0
-  border-bottom: 1px solid $blue
-  display: inline-block
-  margin-left: 1em
-  margin-right: 1em
-  outline: none
-
-.profile-page
-  display: flex
-  flex-direction: row
-  width: 100%
-
-  img
-    display: inline-block
-    flex-grow: 1
-    height: auto
-    min-width: 1em
-
-  .profile-details
-    flex-grow: 3
-    margin-left: 1em
-    min-width: 20%
-
-.field-key
-  color: $black
-
-.field-value
-  font-size: 1.3em
-  margin-bottom: 2em
-
-.field-value-list
-  font-size: 1.3em
-  margin-bottom: .2em
 
