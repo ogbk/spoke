@@ -24,7 +24,7 @@ const Cart = ({ cart, dispatch }: Props) => {
   return (
     <div className="products">
       <div className="products-header">
-        <span>MY CART - TOTAL: </span> <span className="input-quantity">{total} </span>
+        <span>MY CART - TOTAL: </span>£<span className="input-quantity">{total.toFixed(2)} </span>
       </div>
 
       {cart.map(({
