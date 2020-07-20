@@ -1,16 +1,8 @@
 const webpack = require('webpack');
 
-// CAPTURE .env variables
-const dotenv = require('dotenv');
-
-const env = dotenv.config().parsed;
-
-const envKeys = Object.keys(env).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {});
-
-// GET PORT --
+const dotenv = require('dotenv').config({
+  path: `${__dirname}/.env`,
+});
 const { CLIENT_PORT } = require('./port_config');
 
 module.exports = {
@@ -32,6 +24,8 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin(envKeys),
-  ],
+    new webpack.DefinePlugin({
+      'process.env': dotenv.parsed,
+    }),
+  ]
 };

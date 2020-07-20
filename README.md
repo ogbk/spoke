@@ -55,13 +55,10 @@
 
 ## Running
 
-- You need an `.env` file (stored in the root folder) that exposes [ `API_URL` & `API_TOKEN` ]
+- From file `_env.js` in root folder, create another file `.env.js` (NOT `.env`) and add the correct url and token.
 
 - If necessary, change the following default application port in `port_config.js`:
   - client [ 8080 ]
-    
-    Alternatively, store this info in the same `.env` file containing the tokens.
-    
 
 - Clone or download the application
 - ```git clone``` or download this repository

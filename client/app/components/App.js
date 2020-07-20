@@ -10,6 +10,8 @@ import FetchError from './FetchError';
 
 import { query, groupProductsByType } from '../util/graphHelper';
 import { initialState, reducer } from '../util/reducer';
+// $FlowFixMe
+import { API_TOKEN, API_URL } from '../../../.env.js';
 import type { ProductTypes_temp } from '../util/datatypes';
 
 const App = () => {
@@ -22,19 +24,14 @@ const App = () => {
   useEffect(
     () => {
       const fetchProducts = async () => {
-        // $FlowFixMe
-        const URL: string = process.env.API_URL;
-        // $FlowFixMe
-        const TOKEN: string = process.env.API_TOKEN;
-
         try {
           const res = await fetch(
-            URL,
+            API_URL,
             {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
-                'X-Shopify-Storefront-Access-Token': TOKEN,
+                'X-Shopify-Storefront-Access-Token': API_TOKEN,
               },
               body: JSON.stringify({ query }),
             },
