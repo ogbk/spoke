@@ -53,11 +53,6 @@
           }
           ```
 
-
-## Application
-
-When it starts, ...
-
 ## Running
 
 - You need an `.env` file (stored in the root folder) that exposes [ `API_URL` & `API_TOKEN` ]
