@@ -18,6 +18,7 @@ module.exports = {
     compress: true,
     port: CLIENT_PORT,
   },
+  mode: 'development',
   module: {
     rules: [
       { test: /\.js$/, use: 'babel-loader', exclude: /(node_modules)/ },
