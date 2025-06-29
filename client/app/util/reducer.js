@@ -1,5 +1,3 @@
-// @flow
-
 import type { StoreType } from './datatypes';
 import { getItemCartIndexById, findProduct, updateCartQuantity } from './reducerHelper';
 

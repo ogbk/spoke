@@ -1,5 +1,3 @@
-// @flow
-
 import React, { useState, useEffect, useReducer } from 'react';
 import ProductList from './ProductList';
 import Product from './Product';
@@ -10,7 +8,6 @@ import FetchError from './FetchError';
 
 import { query, groupProductsByType } from '../util/graphHelper';
 import { initialState, reducer } from '../util/reducer';
-// $FlowFixMe
 import { API_TOKEN, API_URL } from '../../../.env.js'; // eslint-disable-line
 import type { ProductTypes_temp } from '../util/datatypes';
 

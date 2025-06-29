@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 
 import { openCart, openProductsList } from '../util/actions';

@@ -1,5 +1,3 @@
-// @flow
-
 export type Product = {
   id: string,
   price: number,

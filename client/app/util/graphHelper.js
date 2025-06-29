@@ -1,5 +1,3 @@
-// @flow
-
 import type { ProductTypes_temp } from './datatypes';
 
 const query: string = `
