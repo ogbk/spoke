@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useReducer } from 'react';
-import ProductList from './ProductList';
-import Product from './Product';
-import Cart from './Cart';
-import Header from './Header';
-import Loading from './Loading';
-import FetchError from './FetchError';
+import ProductList from './ProductList.tsx';
+import Product from './Product.tsx';
+import Cart from './Cart.tsx';
+import Header from './Header.tsx';
+import Loading from './Loading.tsx';
+import FetchError from './FetchError.tsx';
 
-import { query, groupProductsByType } from '../util/graphHelper';
-import { initialState, reducer } from '../util/reducer';
+import { query, groupProductsByType } from '../util/graphHelper.ts';
+import { initialState, reducer } from '../util/reducer.ts';
 import { API_TOKEN, API_URL } from '../../../.env.js'; // eslint-disable-line
-import type { ProductTypes_temp } from '../util/datatypes';
+import type { ProductTypes_temp } from '../util/datatypes.ts';
 
 const App = () => {
   const NO_ERROR: string = '';

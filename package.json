@@ -2,7 +2,7 @@
    "name": "spoke-test",
    "version": "1.0.0",
    "description": "Spoke Test",
-   "main": "index.js",
+   "main": "index.tsx",
    "scripts": {
       "dev": "webpack-dev-server --hot --open",
       "prod": "webpack",

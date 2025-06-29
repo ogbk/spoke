@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { computeTotal } from '../util/functions';
-import type { CartType } from '../util/datatypes';
+import { computeTotal } from '../util/functions.ts';
+import type { CartType } from '../util/datatypes.ts';
 
 type Props = {
   cart: CartType,

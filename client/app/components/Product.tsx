@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import type { ProductTypes } from '../util/datatypes';
+import type { ProductTypes } from '../util/datatypes.ts';
 
 type Props = {
   products: ProductTypes,

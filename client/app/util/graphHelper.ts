@@ -1,4 +1,4 @@
-import type { ProductTypes_temp } from './datatypes';
+import type { ProductTypes_temp } from './datatypes.ts';
 
 const query: string = `
   query {

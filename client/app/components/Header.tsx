@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { openCart, openProductsList } from '../util/actions';
+import { openCart, openProductsList } from '../util/actions.ts';
 
 const BACK = 'img/back.png';
 const CART = 'img/cart.png';

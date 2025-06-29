@@ -1,4 +1,4 @@
-import type { CartType } from './datatypes';
+import type { CartType } from './datatypes.ts';
 
 const computeTotal = (cart: CartType) => {
   let ris = 0;

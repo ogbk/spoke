@@ -1,4 +1,4 @@
-import type { StoreType } from './datatypes';
+import type { StoreType } from './datatypes.ts';
 
 // retrieve index of item in [ store.cart ] using id provided
 const getItemCartIndexById = (store: StoreType, givenId: string) => (

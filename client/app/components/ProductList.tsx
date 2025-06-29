@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { openProduct } from '../util/actions';
-import type { ProductTypes } from '../util/datatypes';
+import { openProduct } from '../util/actions.ts';
+import type { ProductTypes } from '../util/datatypes.ts';
 
 type Props = {
   products: ProductTypes,

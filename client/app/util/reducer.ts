@@ -1,5 +1,5 @@
-import type { StoreType } from './datatypes';
-import { getItemCartIndexById, findProduct, updateCartQuantity } from './reducerHelper';
+import type { StoreType } from './datatypes.ts';
+import { getItemCartIndexById, findProduct, updateCartQuantity } from './reducerHelper.ts';
 
 const initialState: StoreType = {
   'cart': [],
