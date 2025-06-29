@@ -64,7 +64,7 @@
 - ```git clone``` or download this repository
 - ```cd spoke``` or ```cd spoke-master```
 - ```yarn install``` to download required packages (client-side)
-- ```yarn start``` to run the application ==> it opens up a new browser
+- ```yarn dev``` to run the application ==> it opens up a new browser
 
 
 ## Linting
